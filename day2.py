@@ -36,12 +36,20 @@ def report_is_safe(report):
   # if we get here, we've got a safe report
   return True
 
+def implement_problem_dampener(report):
+  for index in range(len(report)):
+    if report_is_safe(report[:index] + report[index+1:]):
+      return True
+  return False
 
 def get_num_safe_reports(reports):
   num_safe_reports = 0
   for report in reports:
     if report_is_safe(report):
       num_safe_reports += 1
+    else:
+      if implement_problem_dampener(report):
+        num_safe_reports += 1
   return num_safe_reports
 
 if __name__ == "__main__":
