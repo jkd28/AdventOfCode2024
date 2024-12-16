@@ -3,7 +3,7 @@ import re
 def parse_instructions():
   regex = r"(don?'?t?\(\))|(mul\(\d{1,3},\d{1,3}\))"
   corrupted_mem = ""
-  with open("day3input.txt", "r", encoding="UTF-8") as infile:
+  with open("days/day3/day3input.txt", "r", encoding="UTF-8") as infile:
     corrupted_mem = infile.read()
 
   # using capture groups creates a tuple, so 'do/don't' instructions are in group 0 

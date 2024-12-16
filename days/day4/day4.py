@@ -1,6 +1,6 @@
 def process_input():
   crossword = []
-  with open("day4input.txt", "r") as infile:
+  with open("days/day4/day4input.txt", "r") as infile:
     for line in infile:
       crossword.append(list(line))
   return crossword

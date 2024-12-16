@@ -1,5 +1,5 @@
 def parse_text_file():
-  with open("day1input.txt", "r") as inputfile:
+  with open("days/day1/day1input.txt", "r") as inputfile:
     line_nums = [line.strip().split('   ') for line in inputfile]
     left_list = [int(pairs[0]) for pairs in line_nums]
     right_list = [int(pairs[1]) for pairs in line_nums]

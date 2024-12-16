@@ -1,11 +1,9 @@
 def parse_input():
-  with open("day2input.txt") as inputfile:
+  with open("days/day2/day2input.txt") as inputfile:
     reports = [list(map(int, line.strip().split(' '))) for line in inputfile] # read line and convert all vals to int
   return reports
 
 def report_is_safe(report):
-  print(report)
-
   increasing = True
   for index, level in enumerate(report[:-1]):
     next_level = report[index + 1]
