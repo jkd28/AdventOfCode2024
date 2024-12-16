@@ -1,27 +1,25 @@
 def parse_text_file():
   with open("day1input.txt", "r") as inputfile:
     line_nums = [line.strip().split('   ') for line in inputfile]
-    # print(line_nums)
-    list1 = [int(pairs[0]) for pairs in line_nums]
-    list2 = [int(pairs[1]) for pairs in line_nums]
-  return [list1, list2]
+    left_list = [int(pairs[0]) for pairs in line_nums]
+    right_list = [int(pairs[1]) for pairs in line_nums]
+  return [left_list, right_list]
 
 def day1_runner():
   # intake list
   lists = parse_text_file()
 
   # sort both lists
-  sorted1 = sorted(lists[0])
-  sorted2 = sorted(lists[1])
+  sorted_left = sorted(lists[0])
+  sorted_right = sorted(lists[1])
 
   # calc differences and sum
-  if len(sorted1) != len(sorted2):
+  if len(sorted_left) != len(sorted_right):
     print("PROBLEM! LIST LENGTHS DON'T MATCH")
 
   total_dif = 0
-  for num1, num2 in zip(sorted1, sorted2):
-    print(num1, num2)
-    total_dif = total_dif + abs(num1-num2)
+  for left_num, right_num in zip(sorted_left, sorted_right):
+    total_dif = total_dif + abs(left_num-right_num)
 
   print(total_dif)
 
