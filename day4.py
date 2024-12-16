@@ -39,9 +39,27 @@ def find_xmas(crossword):
         continue
   return occurrences
 
+
+def find_masxs(crossword):
+  occurrences = 0
+  for y, row in enumerate(crossword):
+    for x, col in enumerate(row):
+      if col == "A":
+        if x >= 1 and y >= 1 and x <= len(row)-2 and y <= len(crossword)-2:
+          up_right = crossword[y-1][x+1]
+          down_right = crossword[y+1][x+1]
+          up_left = crossword[y-1][x-1]
+          down_left = crossword[y+1][x-1]
+          
+          if ((up_right == "M" and down_left == "S") or (up_right == "S" and down_left == "M")) and ((up_left == "M" and down_right == "S") or (up_left == "S" and down_right == "M")):
+            occurrences += 1
+  return occurrences
       
 
 if __name__ == "__main__":
   crossword = process_input()
   xmas_occurrances = find_xmas(crossword)
   print(f"XMAS occurances: {xmas_occurrances}")
+  
+  mas_xs = find_masxs(crossword)
+  print(f"MAS in an X occures {mas_xs} times")
